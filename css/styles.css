@@ -2,30 +2,19 @@
     /* border: 1px solid coral; */
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
+    color: #ddd;
 }
 
 html, body {
     height: 100%;
     margin: 0;
+    background-color: #000000;
 }
 
-fieldset {
-    margin: 8px;
-}
-
-canvas {
-    /* This adds to the w/h of the canvas and triggers window scrollbars */
-    /* border: 1px solid #d3d3d3; */
-
-    /* Trick: border without affecting render size*/
-    /* https://stackoverflow.com/a/13517809/1934487 */
-    -webkit-box-shadow: 0px 0px 0px 1px #ddd;
-    -moz-box-shadow: 0px 0px 0px 1px #ddd;
-    box-shadow: 0px 0px 0px 1px #ddd;
-}
 
 .text-small {
     font-size: 12px;
+    color: #ddd;
 }
 
 
@@ -122,19 +111,10 @@ canvas {
 .control-container {
     flex: 1;
     padding-bottom: 10px;
-    margin-bottom: 4px;
+ 
 }
 
-.border-bottom {
-    border-bottom: 1px solid #d3d3d3;
-}
 
-#color-swatch-stroke {
-    height: 75px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #d3d3d3;
-}
 
 .cam#camera-feed {
     /* width: 640px; */
@@ -143,14 +123,10 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #000000;
+
 }
 
-.slider-container {
-    margin: 0 0 2px 0;
-}
+
 
 /* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
 .slider {
@@ -158,7 +134,7 @@ canvas {
     appearance: none;
     width: 125px;
     height: 6px;
-    background: #d3d3d3;
+    background: #000000;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -175,17 +151,131 @@ canvas {
     appearance: none;
     width: 15px;
     height: 15px;
-    background: #888;
+    background: #000000;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 15px;
     height: 15px;
-    background: #888;
+    background: #000000;
     cursor: pointer;
 }
 
 .dropdown {
     margin: 0 0 4px 0;
+}
+
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+
+/* CSS */
+.button-27 {
+  appearance: none;
+  background-color: #000000;
+  border: 0px solid #1A1A1A;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 40px;
+  min-height: 60px;
+  min-width: 0;
+  max-width: 30px;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button-27:disabled {
+  pointer-events: none;
+}
+
+.button-27:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 8px;
+  transform: translateY(-2px);
+}
+
+.button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
